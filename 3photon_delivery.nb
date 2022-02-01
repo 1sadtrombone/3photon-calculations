@@ -1,0 +1,899 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     43391,        891]
+NotebookOptionsPosition[     41686,        855]
+NotebookOutlinePosition[     42103,        871]
+CellTagsIndexPosition[     42060,        868]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"<<", "ABCD`"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "Numbers`"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"elementParams", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[Lambda]", " ", "\[Rule]", " ", 
+        RowBox[{"698", " ", "nano", " ", "meters"}]}], ",", " ", 
+       RowBox[{"w0", " ", "\[Rule]", " ", 
+        RowBox[{"210", " ", "meters", " ", "micro"}]}], ",", " ", 
+       RowBox[{"L1", " ", "\[Rule]", " ", 
+        RowBox[{"3", " ", "inches"}]}], ",", " ", 
+       RowBox[{"L2", " ", "\[Rule]", " ", 
+        RowBox[{"3", " ", "inches"}]}], ",", " ", 
+       RowBox[{"L3", " ", "\[Rule]", " ", 
+        RowBox[{"4", " ", "inches"}]}], ",", " ", 
+       RowBox[{"L4", " ", "\[Rule]", " ", 
+        RowBox[{"6", " ", "inches"}]}], ",", " ", 
+       RowBox[{"L5", " ", "\[Rule]", " ", 
+        RowBox[{"11.94", " ", "inches"}]}], ",", " ", 
+       RowBox[{"f1", " ", "\[Rule]", " ", 
+        RowBox[{"focus1", " ", "milli", " ", "meters"}]}], ",", " ", 
+       RowBox[{"f2", " ", "\[Rule]", " ", 
+        RowBox[{"focus2", " ", "milli", " ", "meters"}]}]}], "}"}]}], ",", 
+    " ", 
+    RowBox[{"{", 
+     RowBox[{"focus1", ",", " ", "50", ",", " ", "100"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"focus2", ",", " ", "50", ",", " ", "100"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"elements", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"freeP", "[", "L1", "]"}], ",", " ", 
+     RowBox[{"lens", "[", "f1", "]"}], ",", " ", 
+     RowBox[{"freeP", "[", 
+      RowBox[{"f1", "+", "f2", "+", "\[Delta]f"}], "]"}], ",", " ", 
+     RowBox[{"lens", "[", "f2", "]"}], ",", " ", 
+     RowBox[{"freeP", "[", 
+      RowBox[{"L2", "+", "L3", "+", "L4", "+", "L5"}], "]"}]}], "}"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.8513630527084155`*^9, 3.851363214446647*^9}, {
+  3.851363248368792*^9, 3.851363255450954*^9}, {3.8513633608079615`*^9, 
+  3.8513636020316634`*^9}, {3.8513636374633446`*^9, 3.851363689944377*^9}, {
+  3.851363965648775*^9, 3.851364086550766*^9}, {3.8513645180497303`*^9, 
+  3.851364520624775*^9}, {3.8515296818989954`*^9, 3.8515296932089624`*^9}, {
+  3.851538992832193*^9, 3.8515390069385624`*^9}, {3.851804925635167*^9, 
+  3.851804942921838*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"06d7405b-d694-4256-acdb-988c827d8cc4"],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Column", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"WaistPlot", "[", 
+       RowBox[{"elements", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"w0", ",", "\[Infinity]"}], "}"}], ",", 
+        RowBox[{"elementParams", " ", "=", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\[Lambda]", " ", "\[Rule]", " ", 
+            RowBox[{"679", " ", "meters", " ", "nano"}]}], ",", 
+           RowBox[{"w0", " ", "\[Rule]", " ", 
+            RowBox[{"580", " ", "meters", " ", "micro"}]}], ",", " ", 
+           RowBox[{"L1", " ", "\[Rule]", " ", 
+            RowBox[{"leadin", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L2", " ", "\[Rule]", " ", 
+            RowBox[{"1", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L3", " ", "\[Rule]", " ", 
+            RowBox[{"1", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L4", " ", "\[Rule]", " ", 
+            RowBox[{"distafter", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L5", " ", "\[Rule]", " ", 
+            RowBox[{"11.94", " ", "inches"}]}], ",", " ", 
+           RowBox[{"f1", " ", "\[Rule]", " ", 
+            RowBox[{"focus1", " ", "milli", " ", "meters"}]}], ",", " ", 
+           RowBox[{"f2", " ", "\[Rule]", " ", 
+            RowBox[{"focus2", " ", "milli", " ", "meters"}]}], ",", " ", 
+           RowBox[{"\[Delta]f", " ", "\[Rule]", " ", 
+            RowBox[{"df", " ", "milli", " ", "meters"}]}]}], "}"}]}], ",", 
+        " ", 
+        RowBox[{"milli", " ", "meters"}]}], "]"}], ",", 
+      RowBox[{"Grid", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<lead in (in)\>\"", ",", "leadin"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<focus 1 (mm)\>\"", ",", "focus1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<focus 2 (mm)\>\"", ",", "focus2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<dist after (in)\>\"", ",", "distafter"}], "}"}]}], 
+        "}"}], "]"}]}], "}"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"leadin", ",", "1", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"focus1", ",", " ", "25", ",", " ", "100"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"focus2", ",", " ", "25", ",", " ", "100"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"df", ",", "0.01", ",", "20"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"distafter", ",", " ", "1", ",", "30"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8515296904313374`*^9, 3.851529729380161*^9}, {
+  3.851530017017807*^9, 3.8515300190411506`*^9}, {3.8515384896918488`*^9, 
+  3.851538489851421*^9}, {3.8515385489632025`*^9, 3.851538550024372*^9}, {
+  3.851538592280724*^9, 3.851538592657775*^9}, {3.8515390141429977`*^9, 
+  3.851539051382425*^9}, {3.851539180216797*^9, 3.851539200291422*^9}, {
+  3.8515392470940247`*^9, 3.8515392476578693`*^9}, {3.8518024323169503`*^9, 
+  3.851802432387946*^9}, {3.851802532569151*^9, 3.8518025326599393`*^9}, {
+  3.852668661904641*^9, 3.8526686683547077`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"737aebec-085a-4317-8754-43900c24fe2b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`df$$ = 
+    1.8600000000001726`, $CellContext`distafter$$ = 
+    7.5, $CellContext`focus1$$ = 50., $CellContext`focus2$$ = 
+    40, $CellContext`leadin$$ = 2.04, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`leadin$$], 1, 6}, {
+      Hold[$CellContext`focus1$$], 25, 100}, {
+      Hold[$CellContext`focus2$$], 25, 100}, {
+      Hold[$CellContext`df$$], 0.01, 20}, {
+      Hold[$CellContext`distafter$$], 1, 30}}, Typeset`size$$ = {
+    180., {90.10000000000001, 96.10000000000001}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`df$$ = 0.01, $CellContext`distafter$$ = 
+        1, $CellContext`focus1$$ = 25, $CellContext`focus2$$ = 
+        25, $CellContext`leadin$$ = 1}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         ABCD`WaistPlot[$CellContext`elements, {$CellContext`w0, 
+           Infinity}, $CellContext`elementParams = {$CellContext`\[Lambda] -> 
+            679 $CellContext`meters $CellContext`nano, $CellContext`w0 -> 
+            580 $CellContext`meters $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+$CellContext`focus1$$ $CellContext`milli $CellContext`meters, $CellContext`f2 -> \
+$CellContext`focus2$$ $CellContext`milli $CellContext`meters, $CellContext`\
+\[Delta]f -> $CellContext`df$$ $CellContext`milli $CellContext`meters}, \
+$CellContext`milli $CellContext`meters], 
+         Grid[{{"lead in (in)", $CellContext`leadin$$}, {
+           "focus 1 (mm)", $CellContext`focus1$$}, {
+           "focus 2 (mm)", $CellContext`focus2$$}, {
+           "dist after (in)", $CellContext`distafter$$}}]}], 
+      "Specifications" :> {{$CellContext`leadin$$, 1, 
+         6}, {$CellContext`focus1$$, 25, 100}, {$CellContext`focus2$$, 25, 
+         100}, {$CellContext`df$$, 0.01, 20}, {$CellContext`distafter$$, 1, 
+         30}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1024., {121., 127.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Input",
+ CellChangeTimes->{{3.852670125790228*^9, 3.8526701409119253`*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"1711598f-3d88-4193-909b-93f26ff19f8b"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`df$$ = 
+    1.8600000000000023`, $CellContext`distafter$$ = 
+    7.5, $CellContext`focus1$$ = 50., $CellContext`focus2$$ = 
+    40, $CellContext`leadin$$ = 2.04, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`leadin$$], 2.04}, 1, 6}, {{
+       Hold[$CellContext`focus1$$], 50.}, 25, 100}, {{
+       Hold[$CellContext`focus2$$], 40}, 25, 100}, {{
+       Hold[$CellContext`df$$], 1.86}, 0.01, 20}, {{
+       Hold[$CellContext`distafter$$], 7.5}, 1, 30}}, Typeset`size$$ = {
+    180., {90.10000000000001, 96.10000000000001}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`df$$ = 1.86, $CellContext`distafter$$ = 
+        7.5, $CellContext`focus1$$ = 50., $CellContext`focus2$$ = 
+        40, $CellContext`leadin$$ = 2.04}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         ABCD`WaistPlot[$CellContext`elements, {$CellContext`w0, 
+           Infinity}, $CellContext`elementParams = {$CellContext`\[Lambda] -> 
+            679 $CellContext`meters $CellContext`nano, $CellContext`w0 -> 
+            580 $CellContext`meters $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+$CellContext`focus1$$ $CellContext`milli $CellContext`meters, $CellContext`f2 -> \
+$CellContext`focus2$$ $CellContext`milli $CellContext`meters, $CellContext`\
+\[Delta]f -> $CellContext`df$$ $CellContext`milli $CellContext`meters}, \
+$CellContext`milli $CellContext`meters], 
+         Grid[{{"lead in (in)", $CellContext`leadin$$}, {
+           "focus 1 (mm)", $CellContext`focus1$$}, {
+           "focus 2 (mm)", $CellContext`focus2$$}, {
+           "dist after (in)", $CellContext`distafter$$}}]}], 
+      "Specifications" :> {{{$CellContext`leadin$$, 2.04}, 1, 
+         6}, {{$CellContext`focus1$$, 50.}, 25, 
+         100}, {{$CellContext`focus2$$, 40}, 25, 
+         100}, {{$CellContext`df$$, 1.86}, 0.01, 
+         20}, {{$CellContext`distafter$$, 7.5}, 1, 30}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1024., {121., 127.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.852670126009384*^9, 3.8526701422354746`*^9}},
+ CellLabel->"Out[7]=",ExpressionUUID->"08f420d4-6f44-424e-860a-291f5dad389c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`df$$ = 7.4, $CellContext`distafter$$ = 
+    9.450000000000001, $CellContext`focus1$$ = 100, $CellContext`focus2$$ = 
+    80, $CellContext`leadin$$ = 2.04, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`leadin$$], 1, 6}, {
+      Hold[$CellContext`focus1$$], 50, 200}, {
+      Hold[$CellContext`focus2$$], 50, 200}, {
+      Hold[$CellContext`df$$], 0.01, 20}, {
+      Hold[$CellContext`distafter$$], 1, 30}}, Typeset`size$$ = {
+    180., {92.10000000000001, 98.10000000000001}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`df$$ = 0.01, $CellContext`distafter$$ = 
+        1, $CellContext`focus1$$ = 50, $CellContext`focus2$$ = 
+        50, $CellContext`leadin$$ = 1}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         ABCD`WaistPlot[$CellContext`elements, {$CellContext`w0, 
+           Infinity}, $CellContext`elementParams = {$CellContext`\[Lambda] -> \
+(679 $CellContext`meters) $CellContext`nano, $CellContext`w0 -> (
+              580 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters, $CellContext`\[Delta]f -> ($CellContext`df$$ \
+$CellContext`milli) $CellContext`meters}, $CellContext`milli \
+$CellContext`meters], 
+         Grid[{{"lead in (in)", $CellContext`leadin$$}, {
+           "focus 1 (mm)", $CellContext`focus1$$}, {
+           "focus 2 (mm)", $CellContext`focus2$$}, {
+           "dist after (in)", $CellContext`distafter$$}}]}], 
+      "Specifications" :> {{$CellContext`leadin$$, 1, 
+         6}, {$CellContext`focus1$$, 50, 200}, {$CellContext`focus2$$, 50, 
+         200}, {$CellContext`df$$, 0.01, 20}, {$CellContext`distafter$$, 1, 
+         30}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1024., {123., 129.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Input",
+ CellChangeTimes->{{3.8518051298832026`*^9, 3.85180514812992*^9}},
+ CellLabel->"In[30]:=",ExpressionUUID->"a7fbaa3b-b96c-45b5-a56e-8dff16290eaf"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`df$$ = 7.4, $CellContext`distafter$$ = 
+    9.6, $CellContext`focus1$$ = 100, $CellContext`focus2$$ = 
+    80, $CellContext`leadin$$ = 2.04, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`leadin$$], 2.04}, 1, 6}, {{
+       Hold[$CellContext`focus1$$], 100}, 50, 200}, {{
+       Hold[$CellContext`focus2$$], 80}, 50, 200}, {{
+       Hold[$CellContext`df$$], 7.4}, 0.01, 20}, {{
+       Hold[$CellContext`distafter$$], 9.6}, 1, 30}}, Typeset`size$$ = {
+    180., {92.10000000000001, 98.10000000000001}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`df$$ = 7.4, $CellContext`distafter$$ = 
+        9.6, $CellContext`focus1$$ = 100, $CellContext`focus2$$ = 
+        80, $CellContext`leadin$$ = 2.04}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         ABCD`WaistPlot[$CellContext`elements, {$CellContext`w0, 
+           Infinity}, $CellContext`elementParams = {$CellContext`\[Lambda] -> \
+(679 $CellContext`meters) $CellContext`nano, $CellContext`w0 -> (
+              580 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters, $CellContext`\[Delta]f -> ($CellContext`df$$ \
+$CellContext`milli) $CellContext`meters}, $CellContext`milli \
+$CellContext`meters], 
+         Grid[{{"lead in (in)", $CellContext`leadin$$}, {
+           "focus 1 (mm)", $CellContext`focus1$$}, {
+           "focus 2 (mm)", $CellContext`focus2$$}, {
+           "dist after (in)", $CellContext`distafter$$}}]}], 
+      "Specifications" :> {{{$CellContext`leadin$$, 2.04}, 1, 
+         6}, {{$CellContext`focus1$$, 100}, 50, 
+         200}, {{$CellContext`focus2$$, 80}, 50, 
+         200}, {{$CellContext`df$$, 7.4}, 0.01, 
+         20}, {{$CellContext`distafter$$, 9.6}, 1, 30}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1024., {123., 129.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8518051301694365`*^9, 3.851805150330083*^9}},
+ CellLabel->"Out[30]=",ExpressionUUID->"95253298-6699-42e5-87e2-fdd594a08af0"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ThreeLambdaWaistPlot", "[", 
+   RowBox[{"elements_List", ",", 
+    RowBox[{"{", 
+     RowBox[{"w0_", ",", "R0_"}], "}"}], ",", "elementParams1_List", ",", 
+    "elementParams2_List", ",", "elementParams3_List", ",", 
+    RowBox[{"scale_", ":", 
+     RowBox[{"(", 
+      RowBox[{"Global`milli", " ", "Global`meters"}], ")"}]}], ",", 
+    RowBox[{"op", ":", 
+     RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"waistFunc", ",", "z", ",", "tmp", ",", "zTot"}], "}"}], ",", 
+    "\n", 
+    RowBox[{
+     RowBox[{"waistFunc", "=", 
+      RowBox[{"WaistFunction", "[", 
+       RowBox[{"elements", ",", "w0", ",", "R0", ",", "z"}], "]"}]}], ";", 
+     "\n", 
+     RowBox[{"tmp1", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"waistFunc", "/", "scale"}], "/.", 
+            RowBox[{"{", 
+             RowBox[{"z", "->", 
+              RowBox[{"Z", " ", "scale"}]}], "}"}]}], "/.", 
+           "elementParams1"}], "//", "Numbers`toNumber"}], ")"}], "/.", 
+        RowBox[{"Global`meters", "->", "1"}]}], "//", "Abs"}]}], ";", 
+     RowBox[{"tmp2", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"waistFunc", "/", "scale"}], "/.", 
+            RowBox[{"{", 
+             RowBox[{"z", "->", 
+              RowBox[{"Z", " ", "scale"}]}], "}"}]}], "/.", 
+           "elementParams2"}], "//", "Numbers`toNumber"}], ")"}], "/.", 
+        RowBox[{"Global`meters", "->", "1"}]}], "//", "Abs"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"tmp3", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"waistFunc", "/", "scale"}], "/.", 
+            RowBox[{"{", 
+             RowBox[{"z", "->", 
+              RowBox[{"Z", " ", "scale"}]}], "}"}]}], "/.", 
+           "elementParams3"}], "//", "Numbers`toNumber"}], ")"}], "/.", 
+        RowBox[{"Global`meters", "->", "1"}]}], "//", "Abs"}]}], ";", "\n", 
+     RowBox[{"zTot", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"freeZones", "@", "elements"}], ")"}], "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "2"}], "]"}], "]"}], "//", "Total"}]}], ";", 
+     "\n", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"tmp1", ",", " ", "tmp2", ",", " ", "tmp3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Z", ",", "0", ",", " ", "1.2"}], 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"zTot", "/", "scale"}], "/.", "elementParams1"}], "//", 
+          "Numbers`toNumber"}], "*)"}], "}"}], ",", "op", ",", 
+       RowBox[{"PlotRange", "->", "Full"}], ",", 
+       RowBox[{"Frame", "->", "True"}]}], "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQB2IQ7WX5p8540xvHG5YczSA6opaxHUTzlYdOBtGTd0mu
+AtHrp27bBKITUk4eAdFnuErPgmgTj01yJkB6netXZRBtJiXmA6JTv7z2BdG3
+fZlCQbTiX1cwHXHqWzSILmOfEAuit924mAqie+Wv54H5QftKQfRGnqdg2mxd
+ahuIbhHpaQfRmxSStoPof0vlD4HohoIdF0F036Uvl0F0CfefOFMg/WRLSzyI
+dtro+wtEZ3AF/AHRp3d/ZzED0j8WMbCC6BV2rwRBtFNOsjiI5unRUgfRa+9K
+a4DoP48VdUH0+4+nDUD0052B4SB6zfczYPqAJ5OpBZDOvcUCpvtXbg3ZA6Rz
+3m4H0xfCr0WA6LAZspEgGgAz/76K
+  "],
+ CellLabel->"In[38]:=",ExpressionUUID->"8c6f608d-ddf0-4787-9b7b-65d4d67fdea1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Column", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ThreeLambdaWaistPlot", "[", 
+       RowBox[{"elements", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"w0", ",", "\[Infinity]"}], "}"}], ",", 
+        RowBox[{"elementParams1", " ", "=", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\[Lambda]", "\[Rule]", 
+            RowBox[{"689", " ", "nano", " ", "meters"}]}], ",", 
+           RowBox[{"w0", " ", "\[Rule]", " ", 
+            RowBox[{"840", " ", "meters", " ", "micro"}]}], ",", " ", 
+           RowBox[{"L1", " ", "\[Rule]", " ", 
+            RowBox[{"leadin", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L2", " ", "\[Rule]", " ", 
+            RowBox[{"1", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L3", " ", "\[Rule]", " ", 
+            RowBox[{"1", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L4", " ", "\[Rule]", " ", 
+            RowBox[{"distafter", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L5", " ", "\[Rule]", " ", 
+            RowBox[{"11.94", " ", "inches"}]}], ",", " ", 
+           RowBox[{"f1", " ", "\[Rule]", " ", 
+            RowBox[{"focus1", " ", "milli", " ", "meters"}]}], ",", " ", 
+           RowBox[{"f2", " ", "\[Rule]", " ", 
+            RowBox[{"focus2", " ", "milli", " ", "meters"}]}]}], "}"}]}], ",", 
+        RowBox[{"elementParams2", " ", "=", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\[Lambda]", "\[Rule]", 
+            RowBox[{"688", " ", "nano", " ", "meters"}]}], ",", 
+           RowBox[{"w0", " ", "\[Rule]", " ", 
+            RowBox[{"840", " ", "meters", " ", "micro"}]}], ",", " ", 
+           RowBox[{"L1", " ", "\[Rule]", " ", 
+            RowBox[{"leadin", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L2", " ", "\[Rule]", " ", 
+            RowBox[{"1", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L3", " ", "\[Rule]", " ", 
+            RowBox[{"1", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L4", " ", "\[Rule]", " ", 
+            RowBox[{"distafter", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L5", " ", "\[Rule]", " ", 
+            RowBox[{"11.94", " ", "inches"}]}], ",", " ", 
+           RowBox[{"f1", " ", "\[Rule]", " ", 
+            RowBox[{"focus1", " ", "milli", " ", "meters"}]}], ",", " ", 
+           RowBox[{"f2", " ", "\[Rule]", " ", 
+            RowBox[{"focus2", " ", "milli", " ", "meters"}]}]}], "}"}]}], ",", 
+        RowBox[{"elementParams3", " ", "=", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\[Lambda]", "\[Rule]", 
+            RowBox[{"679", " ", "nano", " ", "meters"}]}], ",", 
+           RowBox[{"w0", " ", "\[Rule]", " ", 
+            RowBox[{"840", " ", "meters", " ", "micro"}]}], ",", " ", 
+           RowBox[{"L1", " ", "\[Rule]", " ", 
+            RowBox[{"leadin", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L2", " ", "\[Rule]", " ", 
+            RowBox[{"1", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L3", " ", "\[Rule]", " ", 
+            RowBox[{"1", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L4", " ", "\[Rule]", " ", 
+            RowBox[{"distafter", " ", "inches"}]}], ",", " ", 
+           RowBox[{"L5", " ", "\[Rule]", " ", 
+            RowBox[{"11.94", " ", "inches"}]}], ",", " ", 
+           RowBox[{"f1", " ", "\[Rule]", " ", 
+            RowBox[{"focus1", " ", "milli", " ", "meters"}]}], ",", " ", 
+           RowBox[{"f2", " ", "\[Rule]", " ", 
+            RowBox[{"focus2", " ", "milli", " ", "meters"}]}]}], "}"}]}], ",",
+         " ", 
+        RowBox[{"milli", " ", "meters"}]}], "]"}], ",", 
+      RowBox[{"Grid", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<lead in (in)\>\"", ",", "leadin"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<focus 1 (mm)\>\"", ",", "focus1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<focus 2 (mm)\>\"", ",", "focus2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<dist after (in)\>\"", ",", "distafter"}], "}"}]}], 
+        "}"}], "]"}]}], "}"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"leadin", ",", "1", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"focus1", ",", " ", "30", ",", " ", "500"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"focus2", ",", " ", "30", ",", " ", "500"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"distafter", ",", " ", "1", ",", " ", "12"}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.85153008998685*^9, 3.8515301234682117`*^9}, {
+  3.8515302895317545`*^9, 3.8515302947261367`*^9}, {3.851530447128892*^9, 
+  3.8515304851309767`*^9}, {3.851533862240376*^9, 3.8515338704155865`*^9}, {
+  3.8515339914654665`*^9, 3.851533999069154*^9}},
+ CellLabel->"In[39]:=",ExpressionUUID->"21815f9b-a561-43de-a91d-bf1eec8d6118"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`distafter$$ = 1., $CellContext`focus1$$ = 
+    238., $CellContext`focus2$$ = 382., $CellContext`leadin$$ = 3.47, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`leadin$$], 1, 6}, {
+      Hold[$CellContext`focus1$$], 30, 500}, {
+      Hold[$CellContext`focus2$$], 30, 500}, {
+      Hold[$CellContext`distafter$$], 1, 12}}, Typeset`size$$ = {
+    3787., {39.1, 45.1}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`distafter$$ = 1, $CellContext`focus1$$ = 
+        30, $CellContext`focus2$$ = 30, $CellContext`leadin$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         $CellContext`ThreeLambdaWaistPlot[$CellContext`elements, \
+{$CellContext`w0, 
+           Infinity}, $CellContext`elementParams1 = {$CellContext`\[Lambda] -> \
+(689 $CellContext`nano) $CellContext`meters, $CellContext`w0 -> (
+              840 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters}, $CellContext`elementParams2 = {$CellContext`\[Lambda] -> \
+(688 $CellContext`nano) $CellContext`meters, $CellContext`w0 -> (
+              840 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters}, $CellContext`elementParams3 = {$CellContext`\[Lambda] -> \
+(679 $CellContext`nano) $CellContext`meters, $CellContext`w0 -> (
+              840 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters}, $CellContext`milli $CellContext`meters], 
+         Grid[{{"lead in (in)", $CellContext`leadin$$}, {
+           "focus 1 (mm)", $CellContext`focus1$$}, {
+           "focus 2 (mm)", $CellContext`focus2$$}, {
+           "dist after (in)", $CellContext`distafter$$}}]}], 
+      "Specifications" :> {{$CellContext`leadin$$, 1, 
+         6}, {$CellContext`focus1$$, 30, 500}, {$CellContext`focus2$$, 30, 
+         500}, {$CellContext`distafter$$, 1, 12}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{4083., {70., 76.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.851805357944965*^9, 3.851805386764045*^9}},
+ CellLabel->"Out[39]=",ExpressionUUID->"1bd09369-1b31-4c5b-b5e7-5af273525f33"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`distafter$$ = 1, $CellContext`focus1$$ = 
+    100, $CellContext`focus2$$ = 80, $CellContext`leadin$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`leadin$$], 1, 6}, {
+      Hold[$CellContext`focus1$$], 30, 500}, {
+      Hold[$CellContext`focus2$$], 30, 500}, {
+      Hold[$CellContext`distafter$$], 1, 12}}, Typeset`size$$ = {
+    3574., {39.1, 45.1}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`distafter$$ = 1, $CellContext`focus1$$ = 
+        30, $CellContext`focus2$$ = 30, $CellContext`leadin$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         $CellContext`ThreeLambdaWaistPlot[$CellContext`elements, \
+{$CellContext`w0, 
+           Infinity}, $CellContext`elementParams1 = {$CellContext`\[Lambda] -> \
+(689 $CellContext`nano) $CellContext`meters, $CellContext`w0 -> (
+              840 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters}, $CellContext`elementParams2 = {$CellContext`\[Lambda] -> \
+(688 $CellContext`nano) $CellContext`meters, $CellContext`w0 -> (
+              840 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters}, $CellContext`elementParams3 = {$CellContext`\[Lambda] -> \
+(679 $CellContext`nano) $CellContext`meters, $CellContext`w0 -> (
+              840 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters}, $CellContext`milli $CellContext`meters], 
+         Grid[{{"lead in (in)", $CellContext`leadin$$}, {
+           "focus 1 (mm)", $CellContext`focus1$$}, {
+           "focus 2 (mm)", $CellContext`focus2$$}, {
+           "dist after (in)", $CellContext`distafter$$}}]}], 
+      "Specifications" :> {{$CellContext`leadin$$, 1, 
+         6}, {$CellContext`focus1$$, 30, 500}, {$CellContext`focus2$$, 30, 
+         500}, {$CellContext`distafter$$, 1, 12}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{3870., {70., 76.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Input",
+ CellChangeTimes->{{3.851805263015728*^9, 3.8518052643391895`*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"207f2f58-9344-4d7b-8893-d9975f2efe2c"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`distafter$$ = 1, $CellContext`focus1$$ = 
+    100, $CellContext`focus2$$ = 84., $CellContext`leadin$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`leadin$$], 1, 6}, {{
+       Hold[$CellContext`focus1$$], 100}, 30, 500}, {{
+       Hold[$CellContext`focus2$$], 80}, 30, 500}, {
+      Hold[$CellContext`distafter$$], 1, 12}}, Typeset`size$$ = {
+    3595., {39.1, 45.1}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`distafter$$ = 1, $CellContext`focus1$$ = 
+        100, $CellContext`focus2$$ = 80, $CellContext`leadin$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         $CellContext`ThreeLambdaWaistPlot[$CellContext`elements, \
+{$CellContext`w0, 
+           Infinity}, $CellContext`elementParams1 = {$CellContext`\[Lambda] -> \
+(689 $CellContext`nano) $CellContext`meters, $CellContext`w0 -> (
+              840 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters}, $CellContext`elementParams2 = {$CellContext`\[Lambda] -> \
+(688 $CellContext`nano) $CellContext`meters, $CellContext`w0 -> (
+              840 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters}, $CellContext`elementParams3 = {$CellContext`\[Lambda] -> \
+(679 $CellContext`nano) $CellContext`meters, $CellContext`w0 -> (
+              840 $CellContext`meters) $CellContext`micro, $CellContext`L1 -> \
+$CellContext`leadin$$ $CellContext`inches, $CellContext`L2 -> 
+            1 $CellContext`inches, $CellContext`L3 -> 
+            1 $CellContext`inches, $CellContext`L4 -> \
+$CellContext`distafter$$ $CellContext`inches, $CellContext`L5 -> 
+            11.94 $CellContext`inches, $CellContext`f1 -> \
+($CellContext`focus1$$ $CellContext`milli) $CellContext`meters, \
+$CellContext`f2 -> ($CellContext`focus2$$ $CellContext`milli) \
+$CellContext`meters}, $CellContext`milli $CellContext`meters], 
+         Grid[{{"lead in (in)", $CellContext`leadin$$}, {
+           "focus 1 (mm)", $CellContext`focus1$$}, {
+           "focus 2 (mm)", $CellContext`focus2$$}, {
+           "dist after (in)", $CellContext`distafter$$}}]}], 
+      "Specifications" :> {{$CellContext`leadin$$, 1, 
+         6}, {{$CellContext`focus1$$, 100}, 30, 
+         500}, {{$CellContext`focus2$$, 80}, 30, 
+         500}, {$CellContext`distafter$$, 1, 12}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{3891., {70., 76.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.851805272444502*^9, 3.8518052851385403`*^9}},
+ CellLabel->"Out[35]=",ExpressionUUID->"3d4c9c19-77a7-4eed-bc80-7e47c819ab29"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"187", " ", "milli", " ", "meters"}]], "Input",
+ CellChangeTimes->{{3.8516218227088604`*^9, 
+  3.8516218551234655`*^9}},ExpressionUUID->"5bdbcf36-ef74-4692-b8e7-\
+b5681369f646"],
+
+Cell[BoxData[
+ RowBox[{"inches", "[", 
+  RowBox[{"187", " ", "meters", " ", "milli"}], "]"}]], "Output",
+ CellChangeTimes->{{3.851621838482033*^9, 3.851621851289242*^9}},
+ CellLabel->
+  "Out[209]=",ExpressionUUID->"a23c1092-d39f-46c8-a2a3-e51626f28886"]
+}, Open  ]]
+},
+WindowSize->{1141.2, 580.1999999999999},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"d94e9e33-2d6e-4195-8498-8222186299c9"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2404, 52, 107, "Input",ExpressionUUID->"06d7405b-d694-4256-acdb-988c827d8cc4"],
+Cell[2965, 74, 3132, 65, 146, "Input",ExpressionUUID->"737aebec-085a-4317-8754-43900c24fe2b"],
+Cell[CellGroupData[{
+Cell[6122, 143, 3317, 60, 263, InheritFromParent,ExpressionUUID->"1711598f-3d88-4193-909b-93f26ff19f8b"],
+Cell[9442, 205, 3418, 62, 267, "Output",ExpressionUUID->"08f420d4-6f44-424e-860a-291f5dad389c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12897, 272, 3313, 60, 267, "Input",ExpressionUUID->"a7fbaa3b-b96c-45b5-a56e-8dff16290eaf"],
+Cell[16213, 334, 3398, 62, 271, "Output",ExpressionUUID->"95253298-6699-42e5-87e2-fdd594a08af0"]
+}, Open  ]],
+Cell[19626, 399, 3471, 92, 166, "Input",ExpressionUUID->"8c6f608d-ddf0-4787-9b7b-65d4d67fdea1"],
+Cell[CellGroupData[{
+Cell[23122, 495, 4831, 100, 224, "Input",ExpressionUUID->"21815f9b-a561-43de-a91d-bf1eec8d6118"],
+Cell[27956, 597, 4384, 77, 165, "Output",ExpressionUUID->"1bd09369-1b31-4c5b-b5e7-5af273525f33"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32377, 679, 4378, 77, 161, "Input",ExpressionUUID->"207f2f58-9344-4d7b-8893-d9975f2efe2c"],
+Cell[36758, 758, 4419, 78, 165, "Output",ExpressionUUID->"3d4c9c19-77a7-4eed-bc80-7e47c819ab29"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41214, 841, 200, 4, 28, "Input",ExpressionUUID->"5bdbcf36-ef74-4692-b8e7-b5681369f646"],
+Cell[41417, 847, 253, 5, 32, "Output",ExpressionUUID->"a23c1092-d39f-46c8-a2a3-e51626f28886"]
+}, Open  ]]
+}
+]
+*)
+

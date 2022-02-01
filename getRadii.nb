@@ -1,0 +1,236 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9204,        226]
+NotebookOptionsPosition[      8618,        208]
+NotebookOutlinePosition[      9025,        224]
+CellTagsIndexPosition[      8982,        221]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"<<", "Numbers`"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getBeamRadius", "[", "fname_", "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "dataRaw", ",", " ", "data", ",", " ", "dataXT", ",", " ", "dataYT", 
+        ",", " ", "nlmXT", ",", " ", "nlmYT"}], " ", "}"}], ",", 
+      RowBox[{
+       RowBox[{"dataRaw", "=", 
+        RowBox[{"Import", "[", "fname", "]"}]}], ";", 
+       RowBox[{"data", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Drop", "[", 
+           RowBox[{"#", ",", 
+            RowBox[{"-", "1"}]}], "]"}], "&"}], "/@", "dataRaw"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"dataXT", " ", "=", " ", 
+        RowBox[{"Total", "[", "data", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"dataYT", " ", "=", " ", 
+        RowBox[{"Total", "[", 
+         RowBox[{"Transpose", "[", "data", "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"nlmXT", "  ", "=", " ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"NonlinearModelFit", "[", 
+           RowBox[{"#", ",", " ", 
+            RowBox[{"B", "+", 
+             RowBox[{"A", "*", 
+              RowBox[{"Exp", "[", 
+               RowBox[{
+                RowBox[{"-", "2"}], 
+                FractionBox[
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"x", "-", "x0"}], ")"}], "2"], 
+                 SuperscriptBox["w", "2"]]}], "]"}]}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"B", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"A", ",", 
+                RowBox[{"Max", "[", "#", "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x0", ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Position", "[", 
+                   RowBox[{"#", ",", 
+                    RowBox[{"Max", "[", "#", "]"}]}], "]"}], 
+                  "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+                 "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+               "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"w", ",", "100"}], "}"}]}], "}"}], ",", "x"}], "]"}], 
+          "&"}], "[", 
+         RowBox[{"Drop", "[", 
+          RowBox[{
+           RowBox[{"Drop", "[", 
+            RowBox[{"dataXT", ",", "100"}], "]"}], ",", "400"}], "]"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"nlmYT", "  ", "=", " ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"NonlinearModelFit", "[", 
+           RowBox[{"#", ",", " ", 
+            RowBox[{"B", "+", 
+             RowBox[{"A", "*", 
+              RowBox[{"Exp", "[", 
+               RowBox[{
+                RowBox[{"-", "2"}], 
+                FractionBox[
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"x", "-", "x0"}], ")"}], "2"], 
+                 SuperscriptBox["w", "2"]]}], "]"}]}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"B", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"A", ",", 
+                RowBox[{"Max", "[", "#", "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x0", ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Position", "[", 
+                   RowBox[{"#", ",", 
+                    RowBox[{"Max", "[", "#", "]"}]}], "]"}], 
+                  "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+                 "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+               "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"w", ",", "100"}], "}"}]}], "}"}], ",", "x"}], "]"}], 
+          "&"}], "[", 
+         RowBox[{"Drop", "[", 
+          RowBox[{
+           RowBox[{"Drop", "[", 
+            RowBox[{"dataYT", ",", 
+             RowBox[{"-", "100"}]}], "]"}], ",", 
+           RowBox[{"-", "200"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4.4", "meters", " ", "micro", " ", 
+           RowBox[{"(", 
+            RowBox[{"w", "/.", 
+             RowBox[{"nlmXT", "[", "\"\<BestFitParameters\>\"", "]"}]}], 
+            ")"}]}], "+", 
+          RowBox[{"4.4", "meters", " ", "micro", " ", 
+           RowBox[{"(", 
+            RowBox[{"w", "/.", 
+             RowBox[{"nlmYT", "[", "\"\<BestFitParameters\>\"", "]"}]}], 
+            ")"}]}]}], ")"}], "/", "2"}]}]}], "]"}]}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.8517920206172323`*^9, 3.851792053045216*^9}, {
+  3.851794933707749*^9, 3.8517949945711794`*^9}, {3.851795056958198*^9, 
+  3.8517951831634502`*^9}, {3.851795294950652*^9, 3.8517954079087086`*^9}, {
+  3.8517958427954197`*^9, 3.8517958651913385`*^9}, {3.851796038214529*^9, 
+  3.8517960451775837`*^9}},
+ CellLabel->
+  "In[2989]:=",ExpressionUUID->"1f51f0e1-19dd-4208-88af-16b4cb474705"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"fnames", " ", "=", " ", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<E:\\\\3photon_delivery_beamwidths_1\\\\run8_679_-5in.ascii_0001.\
+ascii.csv\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<E:\\\\3photon_delivery_beamwidths_1\\\\run8_679_-4.5in.ascii_0001.\
+ascii.csv\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<E:\\\\3photon_delivery_beamwidths_1\\\\run8_679_-4in.ascii_0001.\
+ascii.csv\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<E:\\\\3photon_delivery_beamwidths_1\\\\run8_679_-3.5in.ascii_0001.\
+ascii.csv\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<E:\\\\3photon_delivery_beamwidths_1\\\\run8_679_-3in.ascii_0001.\
+ascii.csv\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<E:\\\\3photon_delivery_beamwidths_1\\\\run8_679_-2.5in.ascii_0001.\
+ascii.csv\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<E:\\\\3photon_delivery_beamwidths_1\\\\run8_679_-2in.ascii_0001.\
+ascii.csv\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<E:\\\\3photon_delivery_beamwidths_1\\\\run8_679_-1.5in.ascii_0001.\
+ascii.csv\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<E:\\\\3photon_delivery_beamwidths_1\\\\run8_679_-1in.ascii_0001.\
+ascii.csv\>\""}], "\[IndentingNewLine]", "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"getBeamRadius", " ", "/@", " ", "fnames"}]}], "Input",
+ CellChangeTimes->{{3.8517953970432377`*^9, 3.8517954690518427`*^9}, {
+  3.8517955077519226`*^9, 3.851795516092636*^9}, {3.851795548777792*^9, 
+  3.8517955672764454`*^9}, {3.851798083672001*^9, 3.8517981521355925`*^9}, {
+  3.8517993047642183`*^9, 3.851799371912117*^9}, {3.8518009478867884`*^9, 
+  3.851800966069654*^9}, {3.851801295774604*^9, 3.85180131277633*^9}, {
+  3.8518020742302055`*^9, 3.85180212487987*^9}},
+ CellLabel->
+  "In[3003]:=",ExpressionUUID->"453884a0-2415-4e4b-8d70-7b116ab0c4e8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"319.6834395476756`", " ", "meters", " ", "micro"}], ",", 
+   RowBox[{"319.5951785141601`", " ", "meters", " ", "micro"}], ",", 
+   RowBox[{"319.5984872466545`", " ", "meters", " ", "micro"}], ",", 
+   RowBox[{"321.0356504950694`", " ", "meters", " ", "micro"}], ",", 
+   RowBox[{"318.6731604428229`", " ", "meters", " ", "micro"}], ",", 
+   RowBox[{"318.1444222655314`", " ", "meters", " ", "micro"}], ",", 
+   RowBox[{"318.2559204302364`", " ", "meters", " ", "micro"}], ",", 
+   RowBox[{"317.72854938283535`", " ", "meters", " ", "micro"}], ",", 
+   RowBox[{"318.3315140823043`", " ", "meters", " ", "micro"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.8517954404606457`*^9, 3.8517955168838425`*^9}, 
+   3.8517955750299273`*^9, 3.8517958748524675`*^9, 3.851796054419444*^9, {
+   3.851798188201965*^9, 3.851798217109621*^9}, 3.851799412853304*^9, 
+   3.8518010213006015`*^9, 3.851801335305092*^9, 3.851802165280156*^9},
+ CellLabel->
+  "Out[3004]=",ExpressionUUID->"1f935648-cc45-4f49-b18d-bdd797e463ce"]
+}, Open  ]]
+},
+WindowSize->{574.8, 579.6},
+WindowMargins->{{-4.8, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ad6cb82f-53aa-44fa-8d9c-05e9e5745b85"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5143, 129, 463, "Input",ExpressionUUID->"1f51f0e1-19dd-4208-88af-16b4cb474705"],
+Cell[CellGroupData[{
+Cell[5726, 153, 1814, 32, 419, "Input",ExpressionUUID->"453884a0-2415-4e4b-8d70-7b116ab0c4e8"],
+Cell[7543, 187, 1059, 18, 72, "Output",ExpressionUUID->"1f935648-cc45-4f49-b18d-bdd797e463ce"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

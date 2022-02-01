@@ -1,0 +1,225 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8979,        217]
+NotebookOptionsPosition[      8190,        195]
+NotebookOutlinePosition[      8584,        211]
+CellTagsIndexPosition[      8541,        208]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"<<", "ABCD`"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "Numbers`"}]}], "Input",
+ CellChangeTimes->{{3.844535367384766*^9, 3.8445353770280037`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"c4120500-c759-43cd-b430-fde8a3469a5c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"waistloc", "=", 
+   RowBox[{"25", " ", "centi", " ", "meters"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lens1loc", "=", 
+   RowBox[{
+    RowBox[{"27.75", " ", "inches"}], " ", "-", " ", "waistloc"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lens2loc", "=", 
+   RowBox[{"lens1loc", "+", 
+    RowBox[{"6.5", " ", "inches"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fiberloc", "=", 
+   RowBox[{"lens2loc", "+", 
+    RowBox[{"6", " ", "inches"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"waistx", "=", 
+   RowBox[{".145", " ", "milli", " ", "meters"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"waisty", " ", "=", " ", 
+   RowBox[{".08", " ", "milli", " ", "meters"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"targetwaist", "=", 
+  RowBox[{"0.5", "*", "0.885", " ", "milli", " ", "meters"}]}]}], "Input",
+ CellChangeTimes->{{3.8445355374283237`*^9, 3.844535559048934*^9}, {
+  3.844535776296784*^9, 3.844535837535665*^9}, {3.8445360699292994`*^9, 
+  3.844536126935958*^9}, {3.8445361974309464`*^9, 3.844536208936996*^9}},
+ CellLabel->
+  "In[120]:=",ExpressionUUID->"632cef16-096b-49ab-b2ee-730980232db8"],
+
+Cell[BoxData[
+ RowBox[{"0.4425`", " ", "meters", " ", "milli"}]], "Output",
+ CellChangeTimes->{3.84453620935395*^9},
+ CellLabel->
+  "Out[126]=",ExpressionUUID->"695de1ce-ff86-4c01-9b6d-7c6b398629f8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"WaistPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"freeP", "[", "Lens1loc", "]"}], ",", 
+       RowBox[{"lens", "[", "f1", "]"}], ",", 
+       RowBox[{"freeP", "[", 
+        RowBox[{"Lens2loc", " ", "-", " ", "Lens1loc"}], "]"}], ",", 
+       RowBox[{"lens", "[", 
+        RowBox[{"F2", " ", "milli", " ", "meters"}], "]"}], ",", 
+       RowBox[{"freeP", "[", 
+        RowBox[{"Fiberloc", "-", "Lens2loc"}], "]"}], ",", 
+       RowBox[{"lens", "[", "ffiber", "]"}], ",", 
+       RowBox[{"freeP", "[", 
+        RowBox[{"ffiber", "+", "d3"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"w0", ",", "\[Infinity]"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[Lambda]", "\[Rule]", 
+        RowBox[{"679", "nano", " ", "meters"}]}], ",", 
+       RowBox[{"w0", "\[Rule]", "waistx"}], ",", 
+       RowBox[{"Lens1loc", "\[Rule]", "lens1loc"}], ",", 
+       RowBox[{"Lens2loc", "\[Rule]", 
+        RowBox[{"lens2loc", "+", 
+         RowBox[{"\[Delta]L", " ", "inches"}]}]}], ",", 
+       RowBox[{"f1", "\[Rule]", 
+        RowBox[{"75", " ", "milli", " ", "meters"}]}], ",", 
+       RowBox[{"f2", "\[Rule]", 
+        RowBox[{"60", "milli", " ", "meters"}]}], ",", 
+       RowBox[{"Fiberloc", "\[Rule]", "fiberloc"}], ",", " ", 
+       RowBox[{"ffiber", "\[Rule]", 
+        RowBox[{"3.68", "milli", " ", "meters"}]}], ",", 
+       RowBox[{"d3", "\[Rule]", 
+        RowBox[{"0.000001", "milli", " ", "meters"}]}], ",", 
+       RowBox[{"wF", "\[Rule]", 
+        RowBox[{"0.5", "*", "0.885", "milli", " ", "meters"}]}]}], "}"}], ",", 
+     RowBox[{"milli", " ", "meters"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"F2", ",", "50", ",", " ", "100"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Delta]L", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.844535563211563*^9, 3.844535586887129*^9}, {
+  3.844535632559373*^9, 3.844535655651298*^9}, {3.844535873992526*^9, 
+  3.8445358883142*^9}, {3.844535943286345*^9, 3.844535951637394*^9}, {
+  3.844536039157168*^9, 3.844536040930352*^9}, {3.844536159014854*^9, 
+  3.844536173182777*^9}, {3.844536243230422*^9, 3.8445363543146753`*^9}, {
+  3.8445364256868773`*^9, 3.8445364480544853`*^9}, {3.8445364824510117`*^9, 
+  3.8445365082840557`*^9}},
+ CellLabel->
+  "In[135]:=",ExpressionUUID->"18bc0cf4-9c2d-4e29-9f08-bdd6d621da67"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`F2$$ = 
+    58.9, $CellContext`\[Delta]L$$ = -0.54, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`F2$$], 50, 100}, {
+      Hold[$CellContext`\[Delta]L$$], -2, 2}}, Typeset`size$$ = {
+    360., {112., 117.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`F2$$ = 50, $CellContext`\[Delta]L$$ = -2}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ABCD`WaistPlot[{
+         ABCD`freeP[$CellContext`Lens1loc], 
+         ABCD`lens[$CellContext`f1], 
+         ABCD`freeP[$CellContext`Lens2loc - $CellContext`Lens1loc], 
+         ABCD`lens[($CellContext`F2$$ $CellContext`milli) \
+$CellContext`meters], 
+         ABCD`freeP[$CellContext`Fiberloc - $CellContext`Lens2loc], 
+         ABCD`lens[$CellContext`ffiber], 
+         ABCD`freeP[$CellContext`ffiber + $CellContext`d3]}, {$CellContext`w0,
+          Infinity}, {$CellContext`\[Lambda] -> (
+           679 $CellContext`nano) $CellContext`meters, $CellContext`w0 -> \
+$CellContext`waistx, $CellContext`Lens1loc -> $CellContext`lens1loc, \
+$CellContext`Lens2loc -> $CellContext`lens2loc + $CellContext`\[Delta]L$$ \
+$CellContext`inches, $CellContext`f1 -> (
+           75 $CellContext`milli) $CellContext`meters, $CellContext`f2 -> (
+           60 $CellContext`milli) $CellContext`meters, $CellContext`Fiberloc -> \
+$CellContext`fiberloc, $CellContext`ffiber -> (
+           3.68 $CellContext`milli) $CellContext`meters, $CellContext`d3 -> (
+           
+           1.*^-6 $CellContext`milli) $CellContext`meters, $CellContext`wF -> \
+((0.5 0.885) $CellContext`milli) $CellContext`meters}, $CellContext`milli \
+$CellContext`meters], 
+      "Specifications" :> {{$CellContext`F2$$, 50, 
+         100}, {$CellContext`\[Delta]L$$, -2, 2}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {171., 177.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.844535587474017*^9, 3.8445355952384987`*^9}, {
+   3.844535638290938*^9, 3.844535656284205*^9}, {3.8445358266080914`*^9, 
+   3.8445358393212214`*^9}, 3.844535890255435*^9, {3.844535949285404*^9, 
+   3.844535952162736*^9}, 3.8445360414010677`*^9, 3.844536129370462*^9, {
+   3.8445361654708567`*^9, 3.844536173981409*^9}, {3.8445362671278276`*^9, 
+   3.844536294220459*^9}, {3.8445363574275103`*^9, 3.8445363641546793`*^9}, {
+   3.844536448707273*^9, 3.844536450815693*^9}, {3.844536509951373*^9, 
+   3.844536526275261*^9}},
+ CellLabel->
+  "Out[135]=",ExpressionUUID->"0a9354c5-e8dd-4082-b2d4-cf0329565a27"]
+}, Open  ]]
+},
+WindowSize->{808, 677},
+WindowMargins->{{275, Automatic}, {Automatic, 49}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (June 19, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"15e6d464-efeb-44f5-9b54-40434c57234f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 250, 4, 52, "Input",ExpressionUUID->"c4120500-c759-43cd-b430-fde8a3469a5c"],
+Cell[CellGroupData[{
+Cell[833, 28, 1225, 32, 157, "Input",ExpressionUUID->"632cef16-096b-49ab-b2ee-730980232db8"],
+Cell[2061, 62, 199, 4, 34, "Output",ExpressionUUID->"695de1ce-ff86-4c01-9b6d-7c6b398629f8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2297, 71, 2435, 54, 157, "Input",ExpressionUUID->"18bc0cf4-9c2d-4e29-9f08-bdd6d621da67"],
+Cell[4735, 127, 3439, 65, 367, "Output",ExpressionUUID->"0a9354c5-e8dd-4082-b2d4-cf0329565a27"]
+}, Open  ]]
+}
+]
+*)
+
